@@ -5,6 +5,8 @@
 //game window initialzation function
 bool Game::init(const char* title, int xpos, int ypos, int width, int height, int flags)
 {
+    std::cout << "Initializing the window and renderer ..." << std::endl;
+    
     //initialize window and report error if unseccessful
     if (SDL_Init(SDL_INIT_EVERYTHING) < 0 )
     {
@@ -74,7 +76,7 @@ void Game::render()
 
 void Game::clean()
 {
-    std::cout << "Cleaning the game" << std::endl;
+    std::cout << "Quiting and cleaning up the game ... " << std::endl;
     //destory the window
     SDL_DestroyWindow(m_pWindow);
     

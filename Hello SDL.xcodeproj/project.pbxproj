@@ -13,6 +13,7 @@
 		68D0E054222EEE0F0064A69A /* libSDL2_ttf-2.0.0.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 68D0E053222EEE0F0064A69A /* libSDL2_ttf-2.0.0.dylib */; };
 		68D0E05A223085AE0064A69A /* Game.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 68D0E058223085AE0064A69A /* Game.cpp */; };
 		68D5DF402230AB9F00B08CDA /* Assets in CopyFiles */ = {isa = PBXBuildFile; fileRef = 68D5DF3E2230AB4B00B08CDA /* Assets */; };
+		68D5DF43223206CE00B08CDA /* TextureManager.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 68D5DF41223206CE00B08CDA /* TextureManager.cpp */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -46,6 +47,8 @@
 		68D0E058223085AE0064A69A /* Game.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = Game.cpp; sourceTree = "<group>"; };
 		68D0E059223085AE0064A69A /* Game.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = Game.hpp; sourceTree = "<group>"; };
 		68D5DF3E2230AB4B00B08CDA /* Assets */ = {isa = PBXFileReference; lastKnownFileType = folder; path = Assets; sourceTree = "<group>"; };
+		68D5DF41223206CE00B08CDA /* TextureManager.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = TextureManager.cpp; sourceTree = "<group>"; };
+		68D5DF42223206CE00B08CDA /* TextureManager.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = TextureManager.hpp; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -86,6 +89,8 @@
 				68D0E047222EE89C0064A69A /* main.cpp */,
 				68D0E058223085AE0064A69A /* Game.cpp */,
 				68D0E059223085AE0064A69A /* Game.hpp */,
+				68D5DF41223206CE00B08CDA /* TextureManager.cpp */,
+				68D5DF42223206CE00B08CDA /* TextureManager.hpp */,
 			);
 			path = "Hello SDL";
 			sourceTree = "<group>";
@@ -159,6 +164,7 @@
 			files = (
 				68D0E048222EE89C0064A69A /* main.cpp in Sources */,
 				68D0E05A223085AE0064A69A /* Game.cpp in Sources */,
+				68D5DF43223206CE00B08CDA /* TextureManager.cpp in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
