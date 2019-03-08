@@ -30,10 +30,6 @@ bool Game::init(const char* title, int xpos, int ypos, int width, int height, in
     //set the color of the renderer
     SDL_SetRenderDrawColor(m_pRenderer, 255, 0, 0, 255);
     
-    //THIS SECTION IS TO TEST LOADING A BMP TO A SURFACE THEN TEXTURE
-    //create a surface and load the bmp onto it
-    //SDL_Surface *pTempSurface = SDL_LoadBMP("Assets/animate.bmp");
-    
     //use SDL_Image IMG_Load rather than the bmp
     SDL_Surface *pTempSurface = IMG_Load("Assets/animate-alpha.png");
     
