@@ -7,7 +7,7 @@
 bool TextureManager::load(std::string fileName, std::string ID, SDL_Renderer *pRenderer )
 {
     //create the SDL surface pointer variable
-    SDL_Surface *pTempSurface = IMG_Load(fileName.c_str()); //se c_str put C++ string into proper c format
+    SDL_Surface *pTempSurface = IMG_Load(fileName.c_str()); //use c_str to put C++ string into proper c format
     
     //make sure it was and no longer a nullptr
     if (pTempSurface == nullptr)
@@ -15,7 +15,7 @@ bool TextureManager::load(std::string fileName, std::string ID, SDL_Renderer *pR
         return false;
     }
     
-    //create the texter from the surace
+    //create  a poiter to a texture called ptexture
     SDL_Texture *pTexture = SDL_CreateTextureFromSurface(pRenderer, pTempSurface);
     
     //now free up the surface
@@ -43,11 +43,11 @@ void TextureManager::draw(std::string ID, int x, int y, int width, int height, S
     sourceRectangle.x = 0;
     sourceRectangle.y = 0;
     
-    //width of both source and destination is equal and set by the funciton call
+    //width of both source and destination is equal and set by the funciton call parameter
     sourceRectangle.w = destinationRectangle.w = width;
     sourceRectangle.h = destinationRectangle.h = height;
     
-    //destination location is set when the function is called
+    //destination location is set when the function is called in the parameter
     destinationRectangle.x = x;
     destinationRectangle.y = y;
     
@@ -64,5 +64,27 @@ void TextureManager::draw(std::string ID, int x, int y, int width, int height, S
 //drawframe function
 void TextureManager::drawFrame( std::string ID, int x, int y, int width, int height, int currentRow, int currentFrame, SDL_Renderer *pRenderer, SDL_RendererFlip flip )
 {
+    //create rectangles
+    SDL_Rect sourceRectangle;
+    SDL_Rect destinationRectangle;
     
+    sourceRectangle.x = width * currentFrame;
+    sourceRectangle.y = height * (currentRow - 1);
+    
+    sourceRectangle.w = destinationRectangle.w = width;
+    sourceRectangle.h = destinationRectangle.h = height;
+    
+    destinationRectangle.x = x;
+    destinationRectangle.y = y;
+    
+    //render images to screen
+    SDL_RenderCopyEx(pRenderer,
+                     m_textureMap[ID],
+                     &sourceRectangle,
+                     &destinationRectangle,
+                     0,
+                     0,
+                     flip);
 }
+
+

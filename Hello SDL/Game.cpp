@@ -32,22 +32,10 @@ bool Game::init(const char* title, int xpos, int ypos, int width, int height, in
     //set the color of the renderer
     SDL_SetRenderDrawColor(m_pRenderer, 255, 0, 0, 255);
     
-    //use SDL_Image IMG_Load rather than the bmp
-    SDL_Surface *pTempSurface = IMG_Load("Assets/animate-alpha.png");
     
-    //create a texture with the surface/image just loaded
-    m_pTexture = SDL_CreateTextureFromSurface(m_pRenderer, pTempSurface);
+    //use the texture manager to load an image
+    m_textureManager.load("Assets/animate-alpha.png", "animate", m_pRenderer);
     
-    //free the surface to release the memory
-    SDL_FreeSurface(pTempSurface);
-    
-    m_sourceRectangle.w = 128;
-    m_sourceRectangle.h = 82;
-    
-    m_destinationRectangle.x = m_sourceRectangle.x = 0;
-    m_destinationRectangle.y = m_sourceRectangle.y = 0;
-    m_destinationRectangle.w = m_sourceRectangle.w;
-    m_destinationRectangle.h = m_sourceRectangle.h;
     
     //set the while loop to true
     m_bRunning = true;
@@ -62,12 +50,11 @@ void Game::render()
     // "clear" the renderer to the selected color
     SDL_RenderClear(m_pRenderer);
     
-    //push texture to the renderer
-    SDL_RenderCopy(m_pRenderer, m_pTexture, &m_sourceRectangle, &m_destinationRectangle);
+    //use the texture manger to draw an individual image
+    m_textureManager.draw("animate", 0, 0, 128, 82, m_pRenderer);
     
-   // SDL_RenderCopyEx(m_pRenderer, m_pTexture,
-   //                  &m_sourceRectangle, &m_destinationRectangle,
-    //                 NULL, NULL, SDL_FLIP_HORIZONTAL);
+    //use the texture manager drawframe funciton to draw an animated frame
+    m_textureManager.drawFrame("animate", 100, 100, 128, 82, 1, m_currentFrame, m_pRenderer);
     
     //draw to the screen
     SDL_RenderPresent(m_pRenderer);
@@ -109,6 +96,6 @@ void Game::handleEvents()
 
 void Game::update()
 {
-    m_sourceRectangle.x = 128 * int ( ( (SDL_GetTicks() / 100 ) % 6 ) );
-    
+    //new update function based on the new texture manager the source retangle is calculated inside the draw function
+    m_currentFrame = int( ( (SDL_GetTicks() / 100) % 6 ) );
 }
