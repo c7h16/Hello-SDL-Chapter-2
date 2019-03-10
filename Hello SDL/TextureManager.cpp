@@ -4,6 +4,8 @@
 //texture loading funciton that take a file makes a suface then creates a texture then add the texture
 //by its ID and pointer to the map table so it can be accessed later by the ID.
 
+TextureManager *TextureManager::s_pInstance = 0;
+
 bool TextureManager::load(std::string fileName, std::string ID, SDL_Renderer *pRenderer )
 {
     //create the SDL surface pointer variable

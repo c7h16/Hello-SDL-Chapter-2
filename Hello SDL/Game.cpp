@@ -32,9 +32,14 @@ bool Game::init(const char* title, int xpos, int ypos, int width, int height, in
     //set the color of the renderer
     SDL_SetRenderDrawColor(m_pRenderer, 255, 0, 0, 255);
     
-    
     //use the texture manager to load an image
-    m_textureManager.load("Assets/animate-alpha.png", "animate", m_pRenderer);
+   // m_textureManager.load("Assets/animate-alpha.png", "animate", m_pRenderer);
+    
+    //use textermanager as a Singleton to load an image.
+   if ( !theTextureManager::Instance()->load("Assets/animate-alpha.png", "animate", m_pRenderer) )
+   {
+       return false;
+   }
     
     
     //set the while loop to true
@@ -50,11 +55,11 @@ void Game::render()
     // "clear" the renderer to the selected color
     SDL_RenderClear(m_pRenderer);
     
-    //use the texture manger to draw an individual image
-    m_textureManager.draw("animate", 0, 0, 128, 82, m_pRenderer);
+    //call the draw function of the single instancew of the texture manager after checking it throught the Singleton pattern
+    theTextureManager::Instance() -> draw("animate", 0, 0, 128, 82, m_pRenderer);
     
-    //use the texture manager drawframe funciton to draw an animated frame
-    m_textureManager.drawFrame("animate", 100, 100, 128, 82, 1, m_currentFrame, m_pRenderer);
+    //call the drawfram (animated) function of the texture manager after checking it through the Singleton pattern
+    theTextureManager::Instance() -> drawFrame("animate", 100, 100, 128, 82, 1, m_currentFrame, m_pRenderer);
     
     //draw to the screen
     SDL_RenderPresent(m_pRenderer);
