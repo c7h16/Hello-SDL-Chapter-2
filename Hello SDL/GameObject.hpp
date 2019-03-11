@@ -1,28 +1,34 @@
-//
-//  GameObject.hpp
-//  Hello SDL
-//
-//  Created by Mark's Test Computer on 3/10/19.
-//  Copyright © 2019 Mark's Computer. All rights reserved.
-//
 
 #ifndef GameObject_hpp
 #define GameObject_hpp
 
 #include <iostream>
+#include <SDL2/SDL.h>
 
 class GameObject
 {
 public:
 
-    void draw() { std::cout << "draw game object" << std::endl; }
-    void update() { std::cout << "update game object" << std::endl; }
-    void clean() { std::cout << "clean up game object" << std::endl; }
+    void load(int x, int y,
+              int width, int height,
+              std::string textureID);
+    
+    void draw( SDL_Renderer *pRenderer );
+    void update();
+    void clean();
 
 protected:
-
+    
+    std::string m_textureID;
+    
+    int m_currentFrame;
+    int m_currentRow;
+    
     int m_xCoord;
     int m_yCoord;
+    
+    int m_width;
+    int m_height;
 
 };
 

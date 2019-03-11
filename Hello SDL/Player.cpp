@@ -7,5 +7,24 @@
 //
 
 #include "Player.hpp"
-
 #include <iostream>
+
+void Player::load(int x, int y, int width, int heigh, std::string textureID)
+{
+    GameObject::load(x, y, width, heigh, textureID);
+}
+
+void Player::draw(SDL_Renderer *pRenderer)
+{
+    GameObject::draw(pRenderer);
+}
+
+void Player::update()
+{
+    m_xCoord -= 1;
+}
+
+void Player::clean()
+{
+    
+}

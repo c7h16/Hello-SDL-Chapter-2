@@ -41,6 +41,9 @@ bool Game::init(const char* title, int xpos, int ypos, int width, int height, in
        return false;
    }
     
+    //load image into the player class ???
+    m_go.load(100, 100, 128, 82, "animate");
+    m_player.load(300, 300, 128, 82, "animate");
     
     //set the while loop to true
     m_bRunning = true;
@@ -56,10 +59,14 @@ void Game::render()
     SDL_RenderClear(m_pRenderer);
     
     //call the draw function of the single instancew of the texture manager after checking it throught the Singleton pattern
-    theTextureManager::Instance() -> draw("animate", 0, 0, 128, 82, m_pRenderer);
+    //theTextureManager::Instance() -> draw("animate", 0, 0, 128, 82, m_pRenderer);
     
     //call the drawfram (animated) function of the texture manager after checking it through the Singleton pattern
-    theTextureManager::Instance() -> drawFrame("animate", 100, 100, 128, 82, 1, m_currentFrame, m_pRenderer);
+    //theTextureManager::Instance() -> drawFrame("animate", 100, 100, 128, 82, 1, m_currentFrame, m_pRenderer);
+    
+    //use the texture throught the player function
+    m_go.draw(m_pRenderer);
+    m_player.draw(m_pRenderer);
     
     //draw to the screen
     SDL_RenderPresent(m_pRenderer);
@@ -102,5 +109,7 @@ void Game::handleEvents()
 void Game::update()
 {
     //new update function based on the new texture manager the source retangle is calculated inside the draw function
-    m_currentFrame = int( ( (SDL_GetTicks() / 100) % 6 ) );
+    //m_currentFrame = int( ( (SDL_GetTicks() / 100) % 6 ) );
+    m_player.update();
+    m_go.update();
 }

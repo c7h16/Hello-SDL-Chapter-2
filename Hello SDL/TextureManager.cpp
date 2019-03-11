@@ -35,7 +35,11 @@ bool TextureManager::load(std::string fileName, std::string ID, SDL_Renderer *pR
 
 //this is funciton to draw a single item not an animation.
 
-void TextureManager::draw(std::string ID, int x, int y, int width, int height, SDL_Renderer *pRenderer, SDL_RendererFlip flip )
+void TextureManager::draw(std::string ID,
+                          int x, int y,
+                          int width, int height,
+                          SDL_Renderer *pRenderer,
+                          SDL_RendererFlip flip )
 {
     //create the rectangle for the source and destinations
     SDL_Rect sourceRectangle;
@@ -64,7 +68,12 @@ void TextureManager::draw(std::string ID, int x, int y, int width, int height, S
 }
 
 //drawframe function
-void TextureManager::drawFrame( std::string ID, int x, int y, int width, int height, int currentRow, int currentFrame, SDL_Renderer *pRenderer, SDL_RendererFlip flip )
+void TextureManager::drawFrame( std::string ID,
+                               int x, int y,
+                               int width, int height,
+                               int currentRow, int currentFrame,
+                               SDL_Renderer *pRenderer,
+                               SDL_RendererFlip flip )
 {
     //create rectangles
     SDL_Rect sourceRectangle;

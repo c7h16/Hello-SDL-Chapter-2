@@ -4,6 +4,9 @@
 #include <SDL2/SDL_image.h>
 
 #include "TextureManager.hpp"
+#include "GameObject.hpp"
+#include "Player.hpp"
+
 
 class Game
 {
@@ -29,6 +32,9 @@ private:
     
     SDL_Window *m_pWindow = nullptr;
     SDL_Renderer *m_pRenderer = nullptr;
+    
+    GameObject m_go;
+    Player m_player;
     
     int m_currentFrame;
     

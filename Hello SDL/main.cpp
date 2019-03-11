@@ -16,6 +16,9 @@ int main(int argc, const char * argv[]) {
         g_game -> handleEvents();
         g_game -> update();
         g_game -> render();
+        
+        //temporary funtion to delay the animations
+        SDL_Delay(10);
     }
     
     g_game -> clean();
