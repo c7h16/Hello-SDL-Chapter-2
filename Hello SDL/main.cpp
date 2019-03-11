@@ -1,5 +1,5 @@
 #include "Game.hpp"
-#include <iostream>
+// #include <iostream>
 
 //create a Game object
 Game *g_game = nullptr;
