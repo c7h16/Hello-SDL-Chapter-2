@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		68CCBB8B2235CB3900A67A4E /* GameObject.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 68CCBB892235CB3900A67A4E /* GameObject.cpp */; };
+		68CCBB8E2235CB4900A67A4E /* Player.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 68CCBB8C2235CB4900A67A4E /* Player.cpp */; };
 		68D0E048222EE89C0064A69A /* main.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 68D0E047222EE89C0064A69A /* main.cpp */; };
 		68D0E050222EEDDF0064A69A /* libSDL2-2.0.0.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 68D0E04F222EEDDF0064A69A /* libSDL2-2.0.0.dylib */; };
 		68D0E052222EEDF60064A69A /* libSDL2_image-2.0.0.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 68D0E051222EEDF60064A69A /* libSDL2_image-2.0.0.dylib */; };
@@ -39,6 +41,10 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		68CCBB892235CB3900A67A4E /* GameObject.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = GameObject.cpp; sourceTree = "<group>"; };
+		68CCBB8A2235CB3900A67A4E /* GameObject.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = GameObject.hpp; sourceTree = "<group>"; };
+		68CCBB8C2235CB4900A67A4E /* Player.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = Player.cpp; sourceTree = "<group>"; };
+		68CCBB8D2235CB4900A67A4E /* Player.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = Player.hpp; sourceTree = "<group>"; };
 		68D0E044222EE89C0064A69A /* Hello SDL */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = "Hello SDL"; sourceTree = BUILT_PRODUCTS_DIR; };
 		68D0E047222EE89C0064A69A /* main.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = main.cpp; sourceTree = "<group>"; };
 		68D0E04F222EEDDF0064A69A /* libSDL2-2.0.0.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = "libSDL2-2.0.0.dylib"; path = "../../../../../../../usr/local/Cellar/sdl2/2.0.9/lib/libSDL2-2.0.0.dylib"; sourceTree = "<group>"; };
@@ -91,6 +97,10 @@
 				68D0E059223085AE0064A69A /* Game.hpp */,
 				68D5DF41223206CE00B08CDA /* TextureManager.cpp */,
 				68D5DF42223206CE00B08CDA /* TextureManager.hpp */,
+				68CCBB892235CB3900A67A4E /* GameObject.cpp */,
+				68CCBB8A2235CB3900A67A4E /* GameObject.hpp */,
+				68CCBB8C2235CB4900A67A4E /* Player.cpp */,
+				68CCBB8D2235CB4900A67A4E /* Player.hpp */,
 			);
 			path = "Hello SDL";
 			sourceTree = "<group>";
@@ -162,9 +172,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				68CCBB8B2235CB3900A67A4E /* GameObject.cpp in Sources */,
 				68D0E048222EE89C0064A69A /* main.cpp in Sources */,
 				68D0E05A223085AE0064A69A /* Game.cpp in Sources */,
 				68D5DF43223206CE00B08CDA /* TextureManager.cpp in Sources */,
+				68CCBB8E2235CB4900A67A4E /* Player.cpp in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
