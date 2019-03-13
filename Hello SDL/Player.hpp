@@ -2,23 +2,20 @@
 #ifndef Player_hpp
 #define Player_hpp
 
-#include <iostream>
 #include "GameObject.hpp"
+#include "SDLGameObject.hpp"
 
 
-//this class inherits from the GameObject class
-class Player : public GameObject
+class Player : public SDLGameObject
 {
     
 public:
     
-    void load(int x, int y,
-              int width, int heigh,
-              std::string textureID);
+    Player(const LoaderParams* pParams);
     
-    void draw(SDL_Renderer *pRenderer);
-    void update();
-    void clean();
+    virtual void draw();
+    virtual void update();
+    virtual void clean();
     
 };
 

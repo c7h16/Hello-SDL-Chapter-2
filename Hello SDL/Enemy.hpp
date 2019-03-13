@@ -2,19 +2,20 @@
 #ifndef Enemy_hpp
 #define Enemy_hpp
 
-#include <iostream>
 #include "GameObject.hpp"
+#include "SDLGameObject.hpp"
 
-class Enemy : public GameObject
+
+class Enemy : public SDLGameObject
 {
+
 public:
     
-    void load(int x, int y,
-              int width, int heigh,
-              std::string textureID);
-    void draw(SDL_Renderer* pRenderer);
-    void update();
-    void clean();
+    Enemy(const LoaderParams* pParams);
+    
+    virtual void draw();
+    virtual void update();
+    virtual void clean();
     
 };
 

@@ -17,9 +17,16 @@ class Game
     
 public:
     
-    //constructors
-    Game() {}
-    ~Game() {}
+    //static instance for creating the singleton, checks if we already have an instance; if it does returns exisitng if not creates a new one and returns it.
+    static Game* Instance()
+    {
+        if (s_pInstance == nullptr)
+        {
+            s_pInstance = new Game();
+            return s_pInstance;
+        }
+        return s_pInstance;
+    }
     
     //set the running variable to true
     bool init(const char* title, int xpos, int ypos, int width, int height, int flags);
@@ -31,8 +38,16 @@ public:
     
     //to access the private running variable
     bool running() { return m_bRunning; }
+    
+    //getter to return the renderer
+    SDL_Renderer* getRenderer() const { return m_pRenderer; }
 
 private:
+    //constructors
+    Game() {}
+    ~Game() {}
+    
+    static Game* s_pInstance;
     
     SDL_Window *m_pWindow = nullptr;
     SDL_Renderer *m_pRenderer = nullptr;
@@ -48,5 +63,8 @@ private:
     bool m_bRunning = true;
     
 };
+
+//create a typedef for Game
+typedef Game TheGame;
 
 #endif /* Game_hpp */

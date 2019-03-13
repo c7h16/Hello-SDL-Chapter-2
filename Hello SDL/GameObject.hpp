@@ -5,31 +5,21 @@
 #include <iostream>
 #include <SDL2/SDL.h>
 
+#include "LoaderParams.hpp"
+
 class GameObject
 {
 public:
 
-    void virtual load(int x, int y,
-              int width, int height,
-              std::string textureID);
-    
-    void virtual draw( SDL_Renderer *pRenderer );
-    void virtual update();
-    void virtual clean();
+    void virtual draw() = 0;
+    void virtual update() = 0;
+    void virtual clean() = 0;
 
 protected:
     
-    std::string m_textureID;
+    GameObject(const LoaderParams* pParams) { }
+    virtual ~GameObject() {}
     
-    int m_currentFrame;
-    int m_currentRow;
-    
-    int m_xCoord;
-    int m_yCoord;
-    
-    int m_width;
-    int m_height;
-
 };
 
 #endif /* GameObject_hpp */
