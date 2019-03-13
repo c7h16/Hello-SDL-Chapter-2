@@ -16,6 +16,7 @@
 		68D0E05A223085AE0064A69A /* Game.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 68D0E058223085AE0064A69A /* Game.cpp */; };
 		68D5DF402230AB9F00B08CDA /* Assets in CopyFiles */ = {isa = PBXBuildFile; fileRef = 68D5DF3E2230AB4B00B08CDA /* Assets */; };
 		68D5DF43223206CE00B08CDA /* TextureManager.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 68D5DF41223206CE00B08CDA /* TextureManager.cpp */; };
+		D766A44D2238BB0E009E470A /* Enemy.cpp in Sources */ = {isa = PBXBuildFile; fileRef = D766A44B2238BB0E009E470A /* Enemy.cpp */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -55,6 +56,8 @@
 		68D5DF3E2230AB4B00B08CDA /* Assets */ = {isa = PBXFileReference; lastKnownFileType = folder; path = Assets; sourceTree = "<group>"; };
 		68D5DF41223206CE00B08CDA /* TextureManager.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = TextureManager.cpp; sourceTree = "<group>"; };
 		68D5DF42223206CE00B08CDA /* TextureManager.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = TextureManager.hpp; sourceTree = "<group>"; };
+		D766A44B2238BB0E009E470A /* Enemy.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = Enemy.cpp; sourceTree = "<group>"; };
+		D766A44C2238BB0E009E470A /* Enemy.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = Enemy.hpp; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -101,6 +104,8 @@
 				68CCBB8A2235CB3900A67A4E /* GameObject.hpp */,
 				68CCBB8C2235CB4900A67A4E /* Player.cpp */,
 				68CCBB8D2235CB4900A67A4E /* Player.hpp */,
+				D766A44B2238BB0E009E470A /* Enemy.cpp */,
+				D766A44C2238BB0E009E470A /* Enemy.hpp */,
 			);
 			path = "Hello SDL";
 			sourceTree = "<group>";
@@ -172,6 +177,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D766A44D2238BB0E009E470A /* Enemy.cpp in Sources */,
 				68CCBB8B2235CB3900A67A4E /* GameObject.cpp in Sources */,
 				68D0E048222EE89C0064A69A /* main.cpp in Sources */,
 				68D0E05A223085AE0064A69A /* Game.cpp in Sources */,

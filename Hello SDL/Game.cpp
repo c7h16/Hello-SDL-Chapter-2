@@ -32,18 +32,26 @@ bool Game::init(const char* title, int xpos, int ypos, int width, int height, in
     //set the color of the renderer
     SDL_SetRenderDrawColor(m_pRenderer, 255, 0, 0, 255);
     
-    //use the texture manager to load an image
-   // m_textureManager.load("Assets/animate-alpha.png", "animate", m_pRenderer);
-    
     //use textermanager as a Singleton to load an image.
    if ( !theTextureManager::Instance()->load("Assets/animate-alpha.png", "animate", m_pRenderer) )
    {
        return false;
    }
     
-    //load image into the player class ???
-    m_go.load(100, 100, 128, 82, "animate");
-    m_player.load(300, 300, 128, 82, "animate");
+    //delcaring new objects
+    m_go = new GameObject;
+    m_player = new Player;
+    m_enemy = new Enemy;
+    
+    //load image through the pointer
+    m_go -> load(100, 100, 128, 82, "animate");
+    m_player -> load(300, 300, 128, 82, "animate");
+    m_enemy -> load(0, 0, 128, 82, "animate");
+    
+    //push images into the vector
+    m_gameObjects.push_back(m_go);
+    m_gameObjects.push_back(m_player);
+    m_gameObjects.push_back(m_enemy);
     
     //set the while loop to true
     m_bRunning = true;
@@ -58,15 +66,11 @@ void Game::render()
     // "clear" the renderer to the selected color
     SDL_RenderClear(m_pRenderer);
     
-    //call the draw function of the single instancew of the texture manager after checking it throught the Singleton pattern
-    //theTextureManager::Instance() -> draw("animate", 0, 0, 128, 82, m_pRenderer);
-    
-    //call the drawfram (animated) function of the texture manager after checking it through the Singleton pattern
-    //theTextureManager::Instance() -> drawFrame("animate", 100, 100, 128, 82, 1, m_currentFrame, m_pRenderer);
-    
-    //use the texture throught the player function
-    m_go.draw(m_pRenderer);
-    m_player.draw(m_pRenderer);
+    //loop through the object and draw them
+    for (std::vector<GameObject*>::size_type i = 0; i != m_gameObjects.size(); i++)
+    {
+        m_gameObjects[i] -> draw(m_pRenderer);
+    }
     
     //draw to the screen
     SDL_RenderPresent(m_pRenderer);
@@ -108,8 +112,11 @@ void Game::handleEvents()
 
 void Game::update()
 {
-    //new update function based on the new texture manager the source retangle is calculated inside the draw function
-    //m_currentFrame = int( ( (SDL_GetTicks() / 100) % 6 ) );
-    m_player.update();
-    m_go.update();
+    //loop through the game objects and update
+    //TODO: what is size_type funciton in vectors?
+    
+    for (std::vector<GameObject*>::size_type i = 0; i != m_gameObjects.size(); i++)
+    {
+        m_gameObjects[i] -> update();
+    }
 }

@@ -3,9 +3,13 @@
 #include <SDL2/SDL.h>
 #include <SDL2/SDL_image.h>
 
+#include <vector>
+
 #include "TextureManager.hpp"
 #include "GameObject.hpp"
 #include "Player.hpp"
+#include "Enemy.hpp"
+
 
 
 class Game
@@ -33,8 +37,11 @@ private:
     SDL_Window *m_pWindow = nullptr;
     SDL_Renderer *m_pRenderer = nullptr;
     
-    GameObject m_go;
-    Player m_player;
+    GameObject *m_go = nullptr;
+    GameObject *m_player = nullptr;
+    GameObject *m_enemy = nullptr;
+    
+    std::vector<GameObject*> m_gameObjects;
     
     int m_currentFrame;
     

@@ -1,10 +1,3 @@
-//
-//  GameObject.cpp
-//  Hello SDL
-//
-//  Created by Mark's Test Computer on 3/10/19.
-//  Copyright © 2019 Mark's Computer. All rights reserved.
-//
 
 #include "GameObject.hpp"
 #include "TextureManager.hpp"
@@ -26,7 +19,7 @@ void GameObject::load(int x, int y,
     m_currentFrame = 1;
 }
 
-//use member variable items in the Texture Manager draw fram instance
+//use member variable items in the Texture Manager draw frame instance
 void GameObject::draw( SDL_Renderer *pRenderer )
 {
     TextureManager::Instance() -> drawFrame(m_textureID,
